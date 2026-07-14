@@ -1,31 +1,65 @@
+# 🌤️ Weather App
+
+A minimal, responsive weather lookup app that fetches real-time weather data for any city using the OpenWeatherMap API, with the API key secured via a Vercel serverless function.
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white)
+
+## ✨ Features
+
+- 🔍 Search current weather by city name
+- 🌡️ Displays live temperature in °C
+- ☁️ Shows weather condition description (e.g., "clear sky", "light rain")
+- ⚠️ Graceful error handling for invalid city names or API failures
+- 📱 Clean, responsive card-style UI with a frosted-glass background effect
+- 🔒 API key kept server-side via a Vercel serverless function (never exposed to the browser)
+
+## 🛠️ Tech Stack
+
+| Layer      | Technology                                |
+|------------|--------------------------------------------|
+| Structure  | HTML5                                       |
+| Styling    | CSS3 (Flexbox, box-shadow, rgba transparency) |
+| Logic      | Vanilla JavaScript (Fetch API)              |
+| Backend    | Vercel Serverless Function                  |
+| Data       | [OpenWeatherMap API](https://openweathermap.org/api) |
+
+## 📁 Project Structure
+weather-app/
+├── api/
+│   └── weather.js   # Serverless function, keeps API key server-side
+├── index.html       # Markup and layout
+├── style.css        # Styling and visual design
+├── script.js        # Fetch logic and DOM updates
+└── README.md
+
 ## 🚀 Getting Started
 
 ### Prerequisites
 
 - A free API key from [OpenWeatherMap](https://openweathermap.org/api)
-- Any modern browser
-- (Optional) A local dev server like VS Code's Live Server extension, since some browsers block `fetch` on `file://` URLs
+- A [Vercel](https://vercel.com) account (free tier works)
 
 ### Setup
 
 1. Clone the repository
 ```bash
-   git clone https://github.com/<your-username>/weather-app.git
-   cd weather-app
+git clone https://github.com/dasaridevi123/weather-app.git
+cd weather-app
 ```
 
-2. Add your API key
+2. Deploy to Vercel
+   - Import the repo at [vercel.com/new](https://vercel.com/new)
+   - Under **Environment Variables**, add:
+     - Name: `OPENWEATHER_API_KEY`
+     - Value: your OpenWeatherMap API key
+   - Click **Deploy**
 
-   Open `script.js` and replace the `apiKey` value with your own key:
-```js
-   const apiKey = 'YOUR_OPENWEATHERMAP_API_KEY';
-```
+3. Open the live URL Vercel provides and start searching
 
-
-3. Open `index.html` in your browser, or serve it locally:
-```bash
-   npx live-server
-```
+> 🔒 The API key is never exposed in the frontend — `script.js` calls `/api/weather`, and the serverless function in `api/weather.js` attaches the key server-side before calling OpenWeatherMap.
 
 ## 🧭 Usage
 
@@ -44,4 +78,4 @@
 
 ## 🙋 Author
 
-Built by **Dasari Devi** — [GitHub](https://github.com/dasaridevi123/weather-app) · [LinkedIn](hhttps://www.linkedin.com/in/devi-dasari-ab2729374/)
+Built by **Dasari Devi** — [GitHub](https://github.com/dasaridevi123) · [LinkedIn](https://www.linkedin.com/in/devi-dasari-ab2729374/)
