@@ -1,5 +1,3 @@
-const apiKey = '26f06b11ce02f5dc231a6a6cbc94b584';
-const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
 const locationInput = document.getElementById('locationInput');
 const searchButton = document.getElementById('searchButton');
@@ -15,7 +13,7 @@ searchButton.addEventListener('click', () => {
 });
 
 function fetchWeather(location) {
-    const url = `${apiUrl}?q=${location}&appid=${apiKey}&units=metric`;
+    const url = `/api/weather?location=${location}`;
 
     fetch(url)
         .then(response => response.json())
