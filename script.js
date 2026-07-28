@@ -1,4 +1,3 @@
-
 const locationInput = document.getElementById('locationInput');
 const searchButton = document.getElementById('searchButton');
 const locationElement = document.getElementById('location');
@@ -12,8 +11,17 @@ searchButton.addEventListener('click', () => {
     }
 });
 
+locationInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        const location = locationInput.value;
+        if (location) {
+            fetchWeather(location);
+        }
+    }
+});
+
 function fetchWeather(location) {
-    const url = `/api/weather?location=${location}`;
+    const url = `/api/weather?location=${encodeURIComponent(location)}`;
 
     fetch(url)
         .then(response => response.json())

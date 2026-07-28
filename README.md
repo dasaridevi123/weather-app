@@ -1,46 +1,55 @@
 # 🌤️ Weather App
 
-A minimal, responsive weather lookup app that fetches real-time weather data for any city using the OpenWeatherMap API, with the API key secured via a Vercel serverless function.
+A simple weather lookup app that fetches real-time weather data for any city using the OpenWeatherMap API. Built with plain HTML/CSS/JavaScript on the frontend and a small Express.js server on the backend to keep the API key secure.
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white)
 
-## ✨ Features
+## Screenshots
 
-- 🔍 Search current weather by city name
-- 🌡️ Displays live temperature in °C
-- ☁️ Shows weather condition description (e.g., "clear sky", "light rain")
-- ⚠️ Graceful error handling for invalid city names or API failures
-- 📱 Clean, responsive card-style UI with a frosted-glass background effect
-- 🔒 API key kept server-side via a Vercel serverless function (never exposed to the browser)
+![Weather App Screenshot 1](./screenshots/app_demo.png)
+![Weather App Screenshot 2](./screenshots/app_demo2.png)
 
-## 🛠️ Tech Stack
+## Features
 
-| Layer      | Technology                                |
-|------------|--------------------------------------------|
-| Structure  | HTML5                                       |
-| Styling    | CSS3 (Flexbox, box-shadow, rgba transparency) |
-| Logic      | Vanilla JavaScript (Fetch API)              |
-| Backend    | Vercel Serverless Function                  |
-| Data       | [OpenWeatherMap API](https://openweathermap.org/api) |
+- Search current weather by city name
+- Press Enter or click Search to look up weather
+- Displays live temperature in °C
+- Shows weather description (e.g. "clear sky", "light rain")
+- Basic error handling for invalid cities or API failures
+- API key kept server-side (never exposed in the browser)
 
-## 📁 Project Structure
+## Tech Stack
+
+- **Frontend:** HTML, CSS, JavaScript (Fetch API)
+- **Backend:** Node.js + Express
+- **Data:** [OpenWeatherMap API](https://openweathermap.org/api)
+
+## Project Structure
 weather-app/
-├── api/
-│   └── weather.js   # Serverless function, keeps API key server-side
-├── index.html       # Markup and layout
-├── style.css        # Styling and visual design
-├── script.js        # Fetch logic and DOM updates
+├── server.js # Express backend — keeps API key secret, proxies requests
+├── index.html # Page markup
+├── style.css # Styling
+├── script.js # Frontend logic — DOM updates and fetch calls
+├── screenshots/ # App preview images used in this README
+├── .env # Your API key (not committed to GitHub)
 └── README.md
-
-## 🚀 Getting Started
+weather-app/
+├── server.js # Express backend — keeps API key secret, proxies requests
+├── index.html # Page markup
+├── style.css # Styling
+├── script.js # Frontend logic — DOM updates and fetch calls
+├── screenshots/ # App preview images used in this README
+├── .env # Your API key (not committed to GitHub)
+└── README.md
+## Getting Started (Run Locally)
 
 ### Prerequisites
-
+- [Node.js](https://nodejs.org) installed
 - A free API key from [OpenWeatherMap](https://openweathermap.org/api)
-- A [Vercel](https://vercel.com) account (free tier works)
 
 ### Setup
 
@@ -50,32 +59,38 @@ git clone https://github.com/dasaridevi123/weather-app.git
 cd weather-app
 ```
 
-2. Deploy to Vercel
-   - Import the repo at [vercel.com/new](https://vercel.com/new)
-   - Under **Environment Variables**, add:
-     - Name: `OPENWEATHER_API_KEY`
-     - Value: your OpenWeatherMap API key
-   - Click **Deploy**
+2. Install dependencies
+```bash
+npm install express dotenv
+```
 
-3. Open the live URL Vercel provides and start searching
+3. Create a `.env` file in the project root
+OPENWEATHER_API_KEY=your_actual_key_here
 
-> 🔒 The API key is never exposed in the frontend — `script.js` calls `/api/weather`, and the serverless function in `api/weather.js` attaches the key server-side before calling OpenWeatherMap.
 
-## 🧭 Usage
+4. Run the server
+```bash
+node server.js
+```
 
-1. Type a city name into the input field (e.g., `Rourkela`, `London`, `Tokyo`)
-2. Click **Search**
-3. View the city name, current temperature, and weather description
+5. Open your browser and go to
 
-## 🔮 Roadmap / Ideas for Improvement
+http://localhost:3000
 
-- [ ] Add loading state/spinner during fetch
-- [ ] Add 5-day forecast view
-- [ ] Support unit toggle (°C / °F)
-- [ ] Add weather icons based on condition
-- [ ] Add geolocation-based "Use my location" button
-- [ ] Debounce/validate input before triggering search
 
-## 🙋 Author
+## Usage
+
+1. Type a city name (e.g. `Rourkela`, `London`, `Tokyo`)
+2. Press **Enter** or click **Search**
+3. View the city name, temperature, and weather description
+
+## Ideas for Improvement
+
+- Add a loading state during fetch
+- Add a 5-day forecast view
+- Support °C / °F toggle
+- Add weather icons based on condition
+
+## Author
 
 Built by **Dasari Devi** — [GitHub](https://github.com/dasaridevi123) · [LinkedIn](https://www.linkedin.com/in/devi-dasari-ab2729374/)
