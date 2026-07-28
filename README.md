@@ -28,23 +28,22 @@ A simple weather lookup app that fetches real-time weather data for any city usi
 - **Backend:** Node.js + Express
 - **Data:** [OpenWeatherMap API](https://openweathermap.org/api)
 
-## Project Structure
+## 📁 Project Structure
+
+```text
 weather-app/
-├── server.js # Express backend — keeps API key secret, proxies requests
-├── index.html # Page markup
-├── style.css # Styling
-├── script.js # Frontend logic — DOM updates and fetch calls
-├── screenshots/ # App preview images used in this README
-├── .env # Your API key (not committed to GitHub)
-└── README.md
-weather-app/
-├── server.js # Express backend — keeps API key secret, proxies requests
-├── index.html # Page markup
-├── style.css # Styling
-├── script.js # Frontend logic — DOM updates and fetch calls
-├── screenshots/ # App preview images used in this README
-├── .env # Your API key (not committed to GitHub)
-└── README.md
+├── server.js          # Express backend (keeps API key secure and proxies API requests)
+├── index.html         # Main HTML page
+├── style.css          # Application styling
+├── script.js          # Frontend logic, DOM updates, and API requests
+├── screenshots/       # Screenshots used in the README
+├── .env               # Environment variables (API key, not committed)
+├── .gitignore         # Git ignore rules
+├── package.json       # Project metadata and dependencies
+├── package-lock.json  # Dependency lock file
+└── README.md          # Project documentation
+```
+
 ## Getting Started (Run Locally)
 
 ### Prerequisites
